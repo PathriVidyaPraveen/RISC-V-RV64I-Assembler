@@ -4,6 +4,7 @@
 #include "parser.h"
 
 #include <stdio.h>
+#include <stdbool.h>
 
 int main(int argc , char* argv[]){
     // handle case when comamnd line arguments are not used appropriately
@@ -35,7 +36,7 @@ int main(int argc , char* argv[]){
         Instruction instruct = preprocess_and_parse_instruction(line);
         if(!instruct.valid){
 
-            fprintf(stderr , "Line %d: %s Skipping Line : \"%s\"\n");
+            fprintf(stdout , "Line %d: %s Skipping Line : \"%s\"\n" , line_number , instruct.error_message_to_display , line);
 
         }else {
             char* machine_code = "";
